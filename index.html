@@ -6,185 +6,7 @@
   <title>CodeCraft - Premium Websites & Scripts</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2d2b55;
-      --secondary: #ff7ae5;
-      --accent: #6e6bd7;
-      --light: #f8f9fa;
-      --dark: #1a1a2e;
-      --text: #333;
-    }
-
-    * {
-      margin: 0; padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: #f4f6fb;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--dark));
-      color: white;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
-    }
-    .header-content {
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .logo { font-size: 26px; font-weight: 700; display: flex; align-items: center; }
-    .logo i { margin-right: 10px; color: var(--secondary); }
-    nav ul { display: flex; list-style: none; }
-    nav ul li { margin-left: 25px; }
-    nav ul li a {
-      color: white; text-decoration: none; font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover { color: var(--secondary); }
-
-    .mobile-menu-btn {
-      display: none; font-size: 24px; background: none; border: none;
-      color: white; cursor: pointer;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 120px 20px;
-      background: linear-gradient(rgba(45, 43, 85, 0.85), rgba(45, 43, 85, 0.85)),
-        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1500&q=80');
-      background-size: cover; background-position: center;
-      color: white; text-align: center;
-      animation: fadeIn 1.2s ease-in;
-    }
-    .hero h1 {
-      font-size: 3.2rem; margin-bottom: 15px; font-family: 'Poppins', sans-serif;
-      animation: slideDown 1s ease-out;
-    }
-    .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
-    .btn {
-      display: inline-block; padding: 14px 35px;
-      background-color: var(--secondary);
-      color: white; border-radius: 30px; font-weight: 600;
-      transition: 0.3s; border: none; cursor: pointer;
-    }
-    .btn:hover {
-      background-color: white; color: var(--primary);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    /* Products */
-    .products { padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 50px; }
-    .section-title h2 { font-size: 2.4rem; color: var(--primary); margin-bottom: 12px; }
-    .section-title p { color: #666; max-width: 600px; margin: auto; }
-    .product-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-      gap: 30px;
-    }
-    .product-card {
-      background: white; border-radius: 12px; overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: 0.3s; text-align: center;
-    }
-    .product-card:hover { transform: translateY(-10px) scale(1.02); }
-    .product-img {
-      height: 200px; background: var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; color: white;
-    }
-    .product-info { padding: 20px; }
-    .product-info h3 { color: var(--primary); margin-bottom: 10px; }
-    .product-price { font-size: 1.4rem; font-weight: 700; color: var(--secondary); margin-bottom: 15px; }
-
-    /* Features */
-    .features { padding: 80px 0; background: var(--light); }
-    .features-grid {
-      display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-      gap: 25px;
-    }
-    .feature-card {
-      background: white; padding: 30px; border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      text-align: center; transition: 0.3s;
-    }
-    .feature-card:hover { transform: translateY(-5px); }
-    .feature-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
-    .feature-card h3 { margin-bottom: 10px; color: var(--primary); }
-
-    /* Testimonials */
-    .testimonials { padding: 80px 0; }
-    .testimonial-grid {
-      display: grid; grid-template-columns: repeat(auto-fill,minmax(330px,1fr));
-      gap: 25px;
-    }
-    .testimonial-card {
-      background: white; padding: 25px; border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: 0.3s;
-    }
-    .testimonial-card:hover { transform: translateY(-5px); }
-    .testimonial-text { font-style: italic; margin-bottom: 15px; color: #555; }
-    .testimonial-author { display: flex; align-items: center; }
-    .author-img {
-      width: 50px; height: 50px; border-radius: 50%;
-      background: var(--accent); display: flex; justify-content: center; align-items: center;
-      color: white; font-weight: bold; margin-right: 12px;
-    }
-    .author-info h4 { color: var(--primary); margin-bottom: 2px; }
-
-    /* Footer */
-    footer {
-      background: var(--dark); color: white; padding: 60px 0 30px;
-    }
-    .footer-content {
-      display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-      gap: 40px; margin-bottom: 40px;
-    }
-    .footer-column h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--secondary); }
-    .footer-column a, .footer-column p { color: white; opacity: 0.8; margin-bottom: 8px; text-decoration: none; }
-    .footer-column a:hover { opacity: 1; color: var(--secondary); }
-    .social-links { display: flex; gap: 12px; margin-top: 10px; }
-    .social-links a {
-      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.1); border-radius: 50%; transition: 0.3s;
-    }
-    .social-links a:hover { background: var(--secondary); transform: translateY(-3px); }
-    .copyright {
-      text-align: center; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.1);
-      opacity: 0.7;
-    }
-
-    /* Animations */
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    @keyframes slideDown { from {transform:translateY(-40px); opacity:0;} to {transform:translateY(0); opacity:1;} }
-
-    /* Responsive */
-    @media(max-width:768px){
-      .mobile-menu-btn{display:block;}
-      nav ul{display:none; flex-direction:column; position:absolute; top:70px; left:0; width:100%; background:var(--primary); padding:20px;}
-      nav ul.show{display:flex;}
-      nav ul li{margin:10px 0;}
-      .hero h1{font-size:2.3rem;}
-      .hero p{font-size:1rem;}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -212,6 +34,7 @@
     <h1>Premium Websites & Scripts</h1>
     <p>Boost your business with high-quality, professional solutions.</p>
     <a href="#products" class="btn">Explore Now</a>
+    <a href="#contact" class="btn btn-outline" style="margin-left: 15px;">Contact Us</a>
   </div>
 </section>
 
@@ -224,28 +47,52 @@
     </div>
     <div class="product-grid">
       <div class="product-card">
-        <div class="product-img"><i class="fas fa-shopping-cart"></i></div>
+        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
         <div class="product-info">
           <h3>E-Commerce Website</h3>
           <p>Complete online store with payment integration.</p>
+          <ul class="product-features">
+            <li>Payment Gateway Integration</li>
+            <li>Inventory Management</li>
+            <li>Customer Dashboard</li>
+            <li>Admin Panel</li>
+          </ul>
           <div class="product-price">$149</div>
           <a href="#" class="btn">View Details</a>
         </div>
       </div>
       <div class="product-card">
-        <div class="product-img"><i class="fas fa-blog"></i></div>
+        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+          <i class="fas fa-blog"></i>
+        </div>
         <div class="product-info">
           <h3>Blog Platform</h3>
           <p>Modern, responsive blogging platform with SEO.</p>
+          <ul class="product-features">
+            <li>SEO Optimized</li>
+            <li>Content Management</li>
+            <li>Social Media Integration</li>
+            <li>Analytics Dashboard</li>
+          </ul>
           <div class="product-price">$99</div>
           <a href="#" class="btn">View Details</a>
         </div>
       </div>
       <div class="product-card">
-        <div class="product-img"><i class="fas fa-tasks"></i></div>
+        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+          <i class="fas fa-tasks"></i>
+        </div>
         <div class="product-info">
           <h3>Task Manager Script</h3>
           <p>Manage tasks, projects, and collaboration easily.</p>
+          <ul class="product-features">
+            <li>Team Collaboration</li>
+            <li>Progress Tracking</li>
+            <li>File Sharing</li>
+            <li>Calendar Integration</li>
+          </ul>
           <div class="product-price">$79</div>
           <a href="#" class="btn">View Details</a>
         </div>
@@ -275,9 +122,9 @@
   <div class="container">
     <div class="section-title"><h2>Customer Reviews</h2></div>
     <div class="testimonial-grid">
-      <div class="testimonial-card"><div class="testimonial-text">"Amazing e-commerce website, exceeded expectations!"</div><div class="testimonial-author"><div class="author-img">JD</div><div class="author-info"><h4>John Doe</h4><p>Store Owner</p></div></div></div>
-      <div class="testimonial-card"><div class="testimonial-text">"Task manager script boosted team productivity!"</div><div class="testimonial-author"><div class="author-img">SM</div><div class="author-info"><h4>Sarah Miller</h4><p>Project Manager</p></div></div></div>
-      <div class="testimonial-card"><div class="testimonial-text">"High-quality blog platform, SEO-friendly and fast."</div><div class="testimonial-author"><div class="author-img">RJ</div><div class="author-info"><h4>Robert Johnson</h4><p>Content Creator</p></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"Amazing e-commerce website, exceeded expectations! The code quality is exceptional and the support team was very helpful throughout the setup process."</div><div class="testimonial-author"><div class="author-img">JD</div><div class="author-info"><h4>John Doe</h4><p>Store Owner</p></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"Task manager script boosted team productivity! We've seen a 40% increase in project completion rate since implementing this solution."</div><div class="testimonial-author"><div class="author-img">SM</div><div class="author-info"><h4>Sarah Miller</h4><p>Project Manager</p></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"High-quality blog platform, SEO-friendly and fast. My organic traffic increased by 65% in just three months after migrating to this platform."</div><div class="testimonial-author"><div class="author-img">RJ</div><div class="author-info"><h4>Robert Johnson</h4><p>Content Creator</p></div></div></div>
     </div>
   </div>
 </section>
@@ -285,6 +132,29 @@
 <!-- Footer -->
 <footer id="contact">
   <div class="container">
+    <div class="section-title" style="color: white;">
+      <h2>Contact Us</h2>
+      <p>Have questions? Get in touch with our team.</p>
+    </div>
+    
+    <div class="contact-form">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+    
     <div class="footer-content">
       <div class="footer-column"><h3>CodeCraft</h3><p>Providing premium websites & scripts for businesses worldwide.</p></div>
       <div class="footer-column"><h3>Quick Links</h3><a href="#home">Home</a><a href="#products">Products</a><a href="#features">Features</a><a href="#testimonials">Testimonials</a></div>
@@ -294,8 +164,8 @@
   </div>
 </footer>
 
-<script>
-  document.querySelector('.mobile-menu-btn').addEventListener('click',()=>{document.querySelector('nav ul').classList.toggle('show')});
-</script>
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+<script src="script.js"></script>
 </body>
 </html>
