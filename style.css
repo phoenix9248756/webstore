@@ -402,3 +402,41 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* ===========================
+   🌙 Dark / Light Mode Styles
+============================ */
+
+/* Default light mode colors */
+body {
+  background: #ffffff;
+  color: #222;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Dark mode active */
+body.dark-mode {
+  background: #121212;
+  color: #eaeaea;
+}
+
+/* Dark/Light Mode Button */
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 999;
+  transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+  background: #0056b3;
+}
+
