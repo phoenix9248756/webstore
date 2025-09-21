@@ -78,3 +78,26 @@ window.addEventListener('scroll', function() {
     header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
   }
 });
+
+/* ===========================
+   🌙 Dark / Light Mode Toggle
+=========================== */
+function toggleTheme() {
+  document.body.classList.toggle("dark-mode");
+
+  let btn = document.querySelector(".theme-toggle");
+
+  if (document.body.classList.contains("dark-mode")) {
+    btn.innerHTML = "☀️ Light Mode";
+  } else {
+    btn.innerHTML = "🌙 Dark Mode";
+  }
+}
+
+// ✅ Button click listener
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("themeToggle");
+  if (btn) {
+    btn.addEventListener("click", toggleTheme);
+  }
+});
