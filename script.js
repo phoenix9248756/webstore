@@ -1,83 +1,30 @@
-// Language Toggle Function
-const langToggle = document.getElementById('langToggle');
-let currentLang = 'en';
-
-langToggle.addEventListener('click', function() {
-    if (currentLang === 'en') {
-        // Switch to Urdu
-        document.querySelectorAll('.content-en').forEach(el => {
-            el.style.display = 'none';
-        });
-        document.querySelectorAll('.content-urdu').forEach(el => {
-            el.style.display = 'block';
-        });
-        document.querySelectorAll('.input-en').forEach(el => {
-            el.style.display = 'none';
-        });
-        document.querySelectorAll('.input-urdu').forEach(el => {
-            el.style.display = 'block';
-        });
-        document.querySelectorAll('.contact-en').forEach(el => {
-            el.style.display = 'none';
-        });
-        document.querySelectorAll('.contact-urdu').forEach(el => {
-            el.style.display = 'block';
-        });
-        document.querySelector('.btn-en').style.display = 'none';
-        document.querySelector('.btn-urdu').style.display = 'block';
-        document.querySelector('.footer-en').style.display = 'none';
-        document.querySelector('.footer-urdu').style.display = 'block';
+// Quick Contact Form
+const quickForm = document.getElementById('quickForm');
+if (quickForm) {
+    quickForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // Update button texts
-        document.querySelector('.view-projects').textContent = 'Mere Projects Dekhein';
-        document.querySelector('.contact-btn').textContent = 'Rabta Karen';
+        const name = this.querySelector('input[type="text"]').value;
+        const phone = this.querySelector('input[type="tel"]').value;
+        const message = this.querySelector('textarea').value;
         
-        currentLang = 'urdu';
-        langToggle.textContent = 'UR/EN';
-    } else {
-        // Switch to English
-        document.querySelectorAll('.content-en').forEach(el => {
-            el.style.display = 'block';
-        });
-        document.querySelectorAll('.content-urdu').forEach(el => {
-            el.style.display = 'none';
-        });
-        document.querySelectorAll('.input-en').forEach(el => {
-            el.style.display = 'block';
-        });
-        document.querySelectorAll('.input-urdu').forEach(el => {
-            el.style.display = 'none';
-        });
-        document.querySelectorAll('.contact-en').forEach(el => {
-            el.style.display = 'block';
-        });
-        document.querySelectorAll('.contact-urdu').forEach(el => {
-            el.style.display = 'none';
-        });
-        document.querySelector('.btn-en').style.display = 'block';
-        document.querySelector('.btn-urdu').style.display = 'none';
-        document.querySelector('.footer-en').style.display = 'block';
-        document.querySelector('.footer-urdu').style.display = 'none';
+        // Here you can add form submission to your backend
+        // For now, we'll show an alert and create SMS link
         
-        // Update button texts
-        document.querySelector('.view-projects').textContent = 'View My Work';
-        document.querySelector('.contact-btn').textContent = 'Contact Me';
+        alert(`Thank you ${name}! I will contact you at ${phone} soon.`);
         
-        currentLang = 'en';
-        langToggle.textContent = 'EN/UR';
-    }
-});
+        // Create SMS link
+        const smsBody = `Hello! I'm interested in a website project. Name: ${name}, Phone: ${phone}, Message: ${message}`;
+        const smsLink = `sms:+923001234567?body=${encodeURIComponent(smsBody)}`;
+        
+        // Optional: Redirect to SMS
+        // window.location.href = smsLink;
+        
+        this.reset();
+    });
+}
 
-// Mobile Navigation
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Smooth Scrolling
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -91,30 +38,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact Form
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        if (currentLang === 'en') {
-            alert('Thank you! Your message has been sent. I will contact you soon.');
-        } else {
-            alert('Shukriya! Aap ka message receive ho gaya hai. Main jald aap se rabta karunga.');
+// Add loading animation to demo links
+document.querySelectorAll('.demo-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (this.classList.contains('live-demo')) {
+            // Add loading state
+            const originalText = this.textContent;
+            this.textContent = 'Opening Demo...';
+            this.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.style.opacity = '1';
+            }, 2000);
         }
-        
-        this.reset();
     });
-}
+});
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.background = '#fff';
-        navbar.style.backdropFilter = 'none';
-    }
+// Simple page load animation
+window.addEventListener('load', function() {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s';
+    
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100);
 });
