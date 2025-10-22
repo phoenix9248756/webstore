@@ -145,6 +145,139 @@
       <button type="submit">Send via WhatsApp</button>
     </form>
   </section>
+<!-- Paste this near the end of <body> -->
+<style>
+/* Disable text selection & image dragging */
+.no-select, .no-select * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+}
+</style>
+
+<script>
+// -----------------------------
+// Combined Protect Script
+// Paste at end of <body>
+// -----------------------------
+
+(function(){
+  // Add class to body to apply no-select styles
+  document.documentElement.classList.add('no-select');
+  document.body.classList.add('no-select');
+
+  // Helper: show a gentle message (use console for less intrusive)
+  function notify(msg){
+    try {
+      // small non-blocking visual toast (without library)
+      const id = 'ps-protect-toast';
+      if(!document.getElementById(id)){
+        const t = document.createElement('div');
+        t.id = id;
+        t.style.position = 'fixed';
+        t.style.right = '15px';
+        t.style.bottom = '15px';
+        t.style.padding = '10px 14px';
+        t.style.background = 'rgba(0,0,0,0.8)';
+        t.style.color = '#fff';
+        t.style.borderRadius = '6px';
+        t.style.fontSize = '13px';
+        t.style.zIndex = 999999;
+        t.style.boxShadow = '0 2px 10px rgba(0,0,0,0.5)';
+        document.body.appendChild(t);
+      }
+      const el = document.getElementById('ps-protect-toast');
+      el.textContent = msg;
+      el.style.opacity = 1;
+      setTimeout(()=>{ if(el) el.style.opacity = 0; }, 1800);
+    } catch(e){ console.log(msg); }
+  }
+
+  // 1) Disable right-click context menu
+  document.addEventListener('contextmenu', function(e){
+    e.preventDefault();
+    notify('Right-click disabled');
+  }, {passive:false});
+
+  // 2) Disable key shortcuts (F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+U, Ctrl+P, Ctrl+S)
+  document.addEventListener('keydown', function(e){
+    const key = (e.key || '').toLowerCase();
+    // detect combos
+    if(e.key === 'F12') { e.preventDefault(); notify('Inspect disabled'); }
+    if(e.ctrlKey && e.shiftKey && key === 'i'){ e.preventDefault(); notify('Inspect disabled'); }
+    if(e.ctrlKey && e.shiftKey && key === 'c'){ e.preventDefault(); notify('Inspect disabled'); }
+    if(e.ctrlKey && key === 'u'){ e.preventDefault(); notify('View source disabled'); }
+    if(e.ctrlKey && key === 'p'){ e.preventDefault(); notify('Print disabled'); }
+    if(e.ctrlKey && key === 's'){ e.preventDefault(); notify('Save disabled'); }
+    if(e.ctrlKey && key === 'shift'){ /* noop */ }
+  }, {passive:false});
+
+  // 3) Prevent text selection via mouse/touch and dragging images
+  function stopSelect(e){ e.preventDefault(); }
+  document.addEventListener('selectstart', stopSelect, {passive:false});
+  document.addEventListener('dragstart', function(e){ e.preventDefault(); }, {passive:false});
+  document.addEventListener('mousedown', function(e){
+    // allow clicks on form inputs normally
+    const t = e.target;
+    if(t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    // prevent double-click selection
+    if(e.detail > 1) e.preventDefault();
+  }, {passive:false});
+
+  // 4) Prevent copy / cut / paste events
+  ['copy','cut','paste'].forEach(ev=>{
+    document.addEventListener(ev, function(e){
+      // allow copy in editable fields
+      const t = e.target;
+      if(t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+      e.preventDefault();
+      notify(ev.charAt(0).toUpperCase() + ev.slice(1) + ' disabled');
+    }, {passive:false});
+  });
+
+  // 5) Prevent selection via keyboard (Shift+Arrow etc) - optional, block common combos
+  document.addEventListener('keydown', function(e){
+    if(e.shiftKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown')){
+      e.preventDefault();
+    }
+  }, {passive:false});
+
+  // 6) Console warning (for curious devs)
+  console.log('%cStop!','font-size:40px;color:red;');
+  console.log('%cYe site ke code ko copy mat karo. Respect developer.', 'font-size:16px;color:orange;');
+
+  // 7) Optional: simple devtools detection (not perfect) => show warning if opened
+  // This checks time taken by debugger statement; if devtools open, it can be slower.
+  (function detectDevTools(){
+    let last = 0;
+    setInterval(function(){
+      const start = Date.now();
+      debugger; // triggers break when devtools open in some browsers
+      const took = Date.now() - start;
+      if(took > 100){ // threshold, adjust as needed
+        notify('DevTools detected — actions blocked');
+      }
+      last = took;
+    }, 3000);
+  })();
+
+  // 8) Keep trying to remove common developer overlays (makes it annoying)
+  setInterval(function(){
+    // hide element with role="dialog" or big z-index that looks like devtools overlay (best-effort)
+    document.querySelectorAll('[role="dialog"]').forEach(el=>{
+      try{ el.style.display = 'none'; }catch(e){}
+    });
+  }, 2000);
+
+  // 9) Final note to console for advanced users
+  console.log('%cNote: Client-side protection is not 100% — for real protection use server-side.', 'font-size:12px;color:lightblue;');
+
+})(); 
+</script>
 
   <!-- ⚡ Footer -->
   <footer style="text-align:center;padding:30px;background:#111;border-top:2px solid red;">
