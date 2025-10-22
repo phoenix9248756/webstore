@@ -1,18 +1,27 @@
-/* Basic setup */
+/* ------------------------
+   BASIC SETUP
+------------------------ */
 body {
   margin: 0;
   background-color: #000;
   color: #fff;
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* Header */
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+/* ------------------------
+   HEADER
+------------------------ */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 50px;
-  background-color: #db8413;
+  background-color: #b88701;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
   position: sticky;
   top: 0;
@@ -53,7 +62,9 @@ header {
   100% { background-position: 100% 50%; }
 }
 
-/* Navbar */
+/* ------------------------
+   NAVBAR
+------------------------ */
 nav ul {
   display: flex;
   list-style: none;
@@ -89,7 +100,9 @@ nav ul li a:hover {
   text-shadow: 0 0 10px #00ffff;
 }
 
-/* Store Section */
+/* ------------------------
+   GENERAL SECTIONS
+------------------------ */
 .store {
   text-align: center;
   padding: 100px 40px;
@@ -97,7 +110,7 @@ nav ul li a:hover {
 
 .store h2 {
   font-size: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   background: linear-gradient(90deg, red, yellow, lime, cyan, magenta);
   background-size: 300%;
   -webkit-background-clip: text;
@@ -105,7 +118,16 @@ nav ul li a:hover {
   animation: rgbText 4s linear infinite;
 }
 
-/* Product Grid */
+.store p {
+  color: #bbb;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+}
+
+/* ------------------------
+   PRODUCT CARDS / BOXES
+------------------------ */
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -135,15 +157,17 @@ nav ul li a:hover {
 .card h3 {
   color: #00ffff;
   margin-top: 15px;
+  font-size: 22px;
 }
 
 .card p {
   color: #aaa;
   font-size: 15px;
+  margin-bottom: 10px;
 }
 
 .card button {
-  margin-top: 15px;
+  margin-top: 10px;
   background: linear-gradient(90deg, red, yellow, lime, cyan, magenta);
   background-size: 300%;
   border: none;
@@ -165,6 +189,263 @@ nav ul li a:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
 }
+
+/* ------------------------
+   PRICING SECTION
+------------------------ */
+.card ul {
+  padding-left: 15px;
+  text-align: left;
+}
+
+.card ul li {
+  color: #aaa;
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+/* ------------------------
+   FORM (Contact Section)
+------------------------ */
+form input,
+form textarea {
+  margin: 10px 0;
+  border: none;
+  outline: none;
+  background: #222;
+  color: white;
+  width: 300px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+form button {
+  margin-top: 15px;
+  background: linear-gradient(90deg, red, yellow, lime, cyan, magenta);
+  background-size: 300%;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.4s;
+  animation: rgbText 5s linear infinite;
+}
+
+form button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+}
+
+/* ------------------------
+   FOOTER
+------------------------ */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #111;
+  border-top: 2px solid red;
+  color: #aaa;
+}
+
+/* ------------------------
+   RESPONSIVE DESIGN
+------------------------ */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form input,
+  form textarea {
+    width: 90%;
+  }
+}
+/* ------------------------
+   HERO IMAGE SECTION
+------------------------ */
+.hero-image {
+  width: 50%;
+  height: 500px;
+  overflow: hidden;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(90deg, red, yellow, lime, cyan, magenta) 1;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoomIn 15s ease-in-out infinite alternate;
+  border-radius: 0;
+}
+
+@keyframes zoomIn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}/* ------------------------
+   HERO SECTION (Image Right + Text Left + Animation)
+------------------------ */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 60px;
+  gap: 50px;
+  background: radial-gradient(circle at center, #0a0a0a, #000);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, red, lime, cyan, magenta) 1;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+/* Right Image */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-right img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid transparent;
+  border-image: linear-gradient(90deg, red, yellow, lime, cyan, magenta) 1;
+  animation: slideInRight 1.2s ease-out forwards, rgbBorder 5s linear infinite;
+  opacity: 0;
+}
+
+/* Slide Animation */
+@keyframes slideInRight {
+  0% {
+    transform: translate(150px, -150px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Left Text */
+.hero-left {
+  flex: 1;
+  color: white;
+  text-align: left;
+  animation: fadeInText 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Fade Animation */
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-left h2 {
+  font-size: 40px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, red, yellow, lime, cyan, magenta);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rgbText 4s linear infinite;
+}
+
+.hero-left span {
+  text-shadow: 0 0 15px #00ffff;
+}
+
+.hero-left p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.hero-left button {
+  background: linear-gradient(90deg, red, yellow, lime, cyan, magenta);
+  background-size: 300%;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  animation: rgbText 5s linear infinite;
+  transition: 0.3s;
+}
+
+.hero-left button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-left {
+    text-align: center;
+  }
+  .hero-right img {
+    height: 300px;
+  }
+}
+/* ------------------------
+   CUSTOM RGB CURSOR
+------------------------ */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(circle, cyan, magenta, yellow);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6),
+              0 0 60px rgba(255, 0, 255, 0.4);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease-out;
+  mix-blend-mode: difference;
+  z-index: 9999;
+  animation: rgbPulse 2s infinite alternate;
+}
+
+/* RGB pulse animation */
+@keyframes rgbPulse {
+  0% {
+    box-shadow: 0 0 15px red, 0 0 30px lime, 0 0 60px cyan;
+  }
+  100% {
+    box-shadow: 0 0 25px magenta, 0 0 50px yellow, 0 0 100px cyan;
+  }
+}
+
+/* Hide system cursor */
+body, button, a {
+  cursor: none !important;
+}
+
 
 
 
