@@ -3,68 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phoenix Store</title>
+  <title>Phoenix Store - Web Design Selling</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 🧭 Header -->
+  <!-- 🔥 Header -->
   <header>
     <div class="logo">
-      <img src="phoenix officiol logo.png" alt="Logo">
+      <img src="phoenix officiol logo.png" alt="Phoenix Store Logo">
       <h1>PHOENIX STORE</h1>
     </div>
 
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
+<section class="hero-section">
+  <div class="hero-left">
+    <h2>Creative <span>Website Designs</span></h2>
+    <p>We create modern, fast, and responsive websites that grow your business online.</p>
+    <button>Order Now</button>
+  </div>
 
-  <!-- 🛍️ Store Section -->
-  <section class="store">
-    <h2>Our Latest Products</h2>
+  <div class="hero-right">
+    <img src="chek pik.png" alt="Phoenix Banner">
+  </div>
+</section>
 
+
+
+
+  <!-- 💼 Services Section -->
+  <section id="services" class="store">
+    <h2>Our Web Design Services</h2>
     <div class="products">
-
-      <!-- Product 1 -->
       <div class="card">
-        <h3>Portfolio Web</h3>
-        <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/gzZpBDV3nX1AWytfLhbgs/d528553697d959544c8ca5b80b6d8beb/web_developer.png?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000" alt="Product 1">
-        <a href="https://mwzrenovation.com/" target="_blank">
-          <button>View Now</button>
-        </a>
+        <img src="portfolio.jpg" alt="Portfolio Website">
+        <h3>Portfolio Website</h3>
+        <p>Perfect for freelancers, designers, and developers.</p>
+        <button>View Demo</button>
         <button>Order Now</button>
       </div>
 
-      <!-- Product 2 -->
       <div class="card">
-        <img src="product2.jpg" alt="Product 2">
+        <img src="business.jpg" alt="Business Website">
         <h3>Business Website</h3>
-        <p>Modern website design for your brand 💼</p>
-        <a href="https://phoenix9248756.github.io/webstore/" target="_blank">
-          <button>View Now</button>
-        </a>
+        <p>Professional website for your company or store.</p>
+        <button>View Demo</button>
         <button>Order Now</button>
       </div>
 
-      <!-- Product 3 -->
       <div class="card">
-        <img src="product3.jpg" alt="Product 3">
-        <h3>Solar Kit</h3>
-        <p>Affordable solar energy for homes ☀️</p>
-        <a href="https://example.com" target="_blank">
-          <button>View Now</button>
-        </a>
+        <img src="landing.jpg" alt="Landing Page">
+        <h3>Landing Page</h3>
+        <p>High-conversion pages built to grow your sales.</p>
+        <button>View Demo</button>
         <button>Order Now</button>
       </div>
-
     </div>
   </section>
+
+  <!-- 💰 Pricing Section -->
+  <section id="pricing" class="store">
+    <h2>Our Pricing Plans</h2>
+    <div class="products">
+      <div class="card">
+        <h3>Basic</h3>
+        <p>For personal portfolios</p>
+        <ul style="text-align:left;">
+          <li>1 Page Design</li>
+          <li>Responsive Layout</li>
+          <li>Basic SEO Setup</li>
+        </ul>
+        <h3>$20</h3>
+        <button>Order Now</button>
+      </div>
+
+      <div class="card">
+        <h3>Standard</h3>
+        <p>For small businesses</p>
+        <ul style="text-align:left;">
+          <li>3 Page Website</li>
+          <li>Custom Design</li>
+          <li>Free Hosting Setup</li>
+        </ul>
+        <h3>$50</h3>
+        <button>Order Now</button>
+      </div>
+
+      <div class="card">
+        <h3>Premium</h3>
+        <p>For professional brands</p>
+        <ul style="text-align:left;">
+          <li>5+ Pages</li>
+          <li>Animations & SEO</li>
+          <li>Free Maintenance</li>
+        </ul>
+        <h3>$100</h3>
+        <button>Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💬 Reviews Section -->
+  <section id="reviews" class="store">
+    <h2>What Our Clients Say 💬</h2>
+    <div class="products">
+      <div class="card">
+        <p>“Phoenix Store ne mera portfolio itna professional banaya ke har client impress hua!”</p>
+        <h4>- Ahmed Raza</h4>
+      </div>
+
+      <div class="card">
+        <p>“Mujhe business website 3 din me mil gayi. Fast aur reliable service!”</p>
+        <h4>- Bilal Khan</h4>
+      </div>
+
+      <div class="card">
+        <p>“Best web developer in Pakistan. Design & support both zabardast hain.”</p>
+        <h4>- Ayesha Malik</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📞 Contact Section -->
+  <section id="contact" class="store">
+    <h2>Contact Us 📩</h2>
+    <p>Ready to start your project? Message us directly on WhatsApp!</p>
+
+    <form action="https://wa.me/923001234567" target="_blank">
+      <input type="text" placeholder="Your Name" required style="padding:10px;border-radius:5px;width:250px;"><br>
+      <input type="email" placeholder="Your Email" required style="padding:10px;border-radius:5px;width:250px;"><br>
+      <textarea placeholder="Your Message" rows="4" style="padding:10px;border-radius:5px;width:250px;"></textarea><br>
+      <button type="submit">Send via WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- ⚡ Footer -->
+  <footer style="text-align:center;padding:30px;background:#111;border-top:2px solid red;">
+    <p>© 2025 Phoenix Store | Designed by Phoenix Solution 💻</p>
+  </footer>
+<!-- Magic Cursor -->
+<div class="custom-cursor"></div>
+<script>
+  const cursor = document.querySelector('.custom-cursor');
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
+  });
+</script>
 
 </body>
 </html>
